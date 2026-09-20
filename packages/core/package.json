@@ -1,0 +1,30 @@
+{
+  "name": "@fluxora/core",
+  "version": "0.1.0",
+  "description": "Framework-agnostic, zero-dependency state management engine",
+  "keywords": ["state", "fluxora", "reactivity", "store", "typescript"],
+  "license": "MIT",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run"
+  },
+  "devDependencies": {
+    "typescript": "^5.8.2"
+  }
+}
