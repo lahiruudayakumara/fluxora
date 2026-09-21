@@ -1,4 +1,5 @@
-import { EqualityFn, strictEqual } from './equality';
+import { strictEqual } from './equality';
+import type { EqualityFn } from '../types';
 
 export interface SelectorOptions<TResult> {
   equalityFn?: EqualityFn<TResult>;

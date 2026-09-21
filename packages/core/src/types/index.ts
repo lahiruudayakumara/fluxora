@@ -8,7 +8,7 @@ export type Unsubscribe = () => void;
 
 export type EqualityFn<T> = (a: T, b: T) => boolean;
 
-export interface Action<TState = unknown, TPayload = unknown> {
+export interface Action<TPayload = unknown> {
   type: string;
   payload?: TPayload;
   meta?: Record<string, unknown>;
@@ -22,7 +22,7 @@ export interface StoreApi<TState, TActions = Record<string, unknown>> {
   actions: TActions;
   name?: string;
   reset: () => void;
-  dispatch: (action: Action<TState>) => void;
+  dispatch: (action: Action) => void;
 }
 
 export interface StoreOptions<TState, TActions> {
@@ -31,7 +31,7 @@ export interface StoreOptions<TState, TActions> {
   actions?: (api: {
     set: (patch: StatePatch<TState>, actionName?: string) => void;
     get: () => TState;
-    dispatch: (action: Action<TState>) => void;
+    dispatch: (action: Action) => void;
   }) => TActions;
   middleware?: Middleware<TState>[];
 }

@@ -38,7 +38,7 @@ export function createStore<TState, TActions = Record<string, unknown>>(
     return subscriptionManager.subscribe(listener);
   };
 
-  const dispatch = (action: Action<TState>): void => {
+  const dispatch = (action: Action): void => {
     setState((state: TState) => state, action.type);
   };
 
