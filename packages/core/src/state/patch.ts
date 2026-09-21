@@ -6,8 +6,8 @@ export function applyPatch<TState>(
 ): TState {
   const nextPatch = typeof patch === 'function' ? (patch as (s: TState) => Partial<TState> | TState)(prevState) : patch;
 
-  // If nextPatch is null or undefined, state remains unchanged
-  if (nextPatch === undefined || nextPatch === null) {
+  // If nextPatch is null or undefined, or identical to prevState, state remains unchanged
+  if (nextPatch === undefined || nextPatch === null || Object.is(prevState, nextPatch)) {
     return prevState;
   }
 
